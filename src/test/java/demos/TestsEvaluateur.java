@@ -47,7 +47,7 @@ public class TestsEvaluateur {
 		@RepeatedTest( value=50, name="Test nominal avec cours et examen générés aléatoirement - Test n°{currentRepetition}")
 		public void testsAleatoires() 
 				throws ExceptionValeurNonEntiere, ExceptionValeurHorsBorne {
-			
+
 			// Arrange
 			int iCours = (int) Math.round(Math.random()*(MAX_COURS));
 			int iExamen = (int) Math.round(Math.random()*(MAX_EXAMEN));
@@ -94,7 +94,7 @@ public class TestsEvaluateur {
 		@Order(1)
 		@ParameterizedTest(name="Test avec cours={0} et examen={1}")
 		@CsvSource( {"-1,30","26,30","20,-1","20,76"} )
-		public void testValeurHorsBorne( String cours, String examen ) 
+		public void testValeurHorsBorne( String cours, String examen )
 				throws ExceptionValeurNonEntiere, ExceptionValeurHorsBorne {
 		    assertThrows( ExceptionValeurHorsBorne.class, 
 		    		() -> {EvaluateurNiveau.evaluerNiveau(cours, examen); });
